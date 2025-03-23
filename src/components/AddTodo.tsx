@@ -1,7 +1,18 @@
-export default function AddTodo() {
+import Button from "@/components/ui/Button";
+import { ListPlus } from "lucide-react";
+import Tooltip from "./ui/Tooltip";
+
+export default function AddTodoButton() {
   return (
-    <section>
-      <p>AddTodo Component</p>
-    </section>
+    <Tooltip content="Add Todo" position="top">
+      <Button
+        // onClick={onClick}
+        variant="primary"
+        size="sm"
+        aria-label="Add Todo"
+      >
+        <ListPlus size={20} />
+      </Button>
+    </Tooltip>
   );
 }
