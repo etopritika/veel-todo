@@ -1,11 +1,11 @@
 "use client";
-import { useState } from "react";
 import Button from "@/components/ui/Button";
+import { useFilterStore } from "@/store/filterStore";
 
 type Filter = "all" | "active" | "completed";
 
 export default function FilterTabs() {
-  const [value, setFilter] = useState<Filter>("all");
+  const { filter, setFilter } = useFilterStore();
 
   const filters: { label: string; value: Filter }[] = [
     { label: "All", value: "all" },
@@ -16,17 +16,17 @@ export default function FilterTabs() {
   return (
     <nav aria-label="Todo filters">
       <ul className="flex space-x-2">
-        {filters.map((filter) => {
-          const isActive = value === filter.value;
+        {filters.map(({ label, value }) => {
+          const isActive = filter === value;
 
           return (
-            <li key={filter.value}>
+            <li key={value}>
               <Button
                 variant={isActive ? "primary" : "ghost"}
                 size="sm"
-                onClick={() => setFilter(filter.value)}
+                onClick={() => setFilter(value)}
               >
-                {filter.label}
+                {label}
               </Button>
             </li>
           );
