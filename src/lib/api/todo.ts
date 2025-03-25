@@ -15,3 +15,10 @@ export async function addTodo(data: TodoInput): Promise<Todo> {
   });
   return res.data;
 }
+
+export async function updateTodo(
+  id: number,
+  completed: boolean
+): Promise<void> {
+  await api.patch(`/todos/${id}`, { completed });
+}

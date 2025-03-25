@@ -2,18 +2,24 @@ import { Todo } from "@/lib/types";
 import Button from "./ui/Button";
 import { Trash2 } from "lucide-react";
 import Tooltip from "./ui/Tooltip";
+import { useToggleTodo } from "@/hooks/useToggleTodo";
 
 type TodoItemProps = {
   todo: Todo;
-  // onDelete: (id: number) => void;
-  // onToggle: (id: number) => void;
 };
 
 export default function TodoItem({ todo }: TodoItemProps) {
+  const { mutate: toggleTodo } = useToggleTodo();
   return (
     <li className="flex items-center justify-between">
       <div className="flex space-x-2">
-        <input type="checkbox" checked={todo.completed} />
+        <input
+          type="checkbox"
+          checked={todo.completed}
+          onChange={() =>
+            toggleTodo({ id: todo.id, completed: !todo.completed })
+          }
+        />
         <p className={`${todo.completed ? "line-through" : ""}`}>
           {todo.title}
         </p>
