@@ -31,10 +31,8 @@ export default function ModalContainer({
 
         {title && <h2 className="text-lg font-semibold mb-4">{title}</h2>}
 
-        <div>{children}</div>
+        {children}
       </div>
-
-      <div className="absolute inset-0" onClick={setClose} />
     </div>
   );
 }
