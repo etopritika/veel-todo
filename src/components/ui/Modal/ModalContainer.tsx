@@ -2,7 +2,7 @@
 
 import { ReactNode } from "react";
 import { X } from "lucide-react";
-import { useModal } from "./ModalProvider";
+import { useModal } from "../../../lib/providers/ModalProvider";
 import { useEscapeKey } from "@/hooks/useEscapeKey";
 
 type ModalContainerProps = {
