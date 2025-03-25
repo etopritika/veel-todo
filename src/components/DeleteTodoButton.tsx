@@ -2,7 +2,7 @@ import { Trash2 } from "lucide-react";
 import Button from "./ui/Button";
 import Tooltip from "./ui/Tooltip";
 import { useModal } from "@/lib/providers/ModalProvider";
-import ModalContainer from "./ui/Modal/ModalContainer";
+import ModalContainer from "./ui/ModalContainer";
 import { Todo } from "@/lib/types";
 import DeleteTodoModal from "./DeleteTodoModal";
 

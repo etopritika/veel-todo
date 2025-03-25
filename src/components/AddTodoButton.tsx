@@ -2,7 +2,7 @@
 import Button from "@/components/ui/Button";
 import { ListPlus } from "lucide-react";
 import Tooltip from "./ui/Tooltip";
-import ModalContainer from "./ui/Modal/ModalContainer";
+import ModalContainer from "./ui/ModalContainer";
 import AddTodoModal from "./AddTodoModal";
 import { useModal } from "../lib/providers/ModalProvider";
 
