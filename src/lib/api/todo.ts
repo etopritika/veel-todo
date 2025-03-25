@@ -22,3 +22,7 @@ export async function updateTodo(
 ): Promise<void> {
   await api.patch(`/todos/${id}`, { completed });
 }
+
+export async function deleteTodo(id: number): Promise<void> {
+  await api.delete(`/todos/${id}`);
+}

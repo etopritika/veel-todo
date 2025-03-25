@@ -1,8 +1,6 @@
 import { Todo } from "@/lib/types";
-import Button from "./ui/Button";
-import { Trash2 } from "lucide-react";
-import Tooltip from "./ui/Tooltip";
 import { useToggleTodo } from "@/hooks/useToggleTodo";
+import DeleteTodoButton from "./DeleteTodoButton";
 
 type TodoItemProps = {
   todo: Todo;
@@ -24,11 +22,7 @@ export default function TodoItem({ todo }: TodoItemProps) {
           {todo.title}
         </p>
       </div>
-      <Tooltip content="Remove Todo" position="top">
-        <Button variant="danger" size="sm" aria-label="Remove Todo">
-          <Trash2 size={20} />
-        </Button>
-      </Tooltip>
+      <DeleteTodoButton todo={todo} />
     </li>
   );
 }
