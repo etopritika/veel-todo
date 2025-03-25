@@ -7,7 +7,7 @@ import { useEscapeKey } from "@/hooks/useEscapeKey";
 
 type ModalContainerProps = {
   children: ReactNode;
-  title?: string;
+  title?: string | ReactNode;
 };
 
 export default function ModalContainer({
