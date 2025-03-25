@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`container px-8 mx-auto min-h-screen ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`container px-8 mx-auto min-h-screen ${geistSans.variable} ${geistMono.variable} antialiased flex flex-col`}
       >
         <QueryProvider>
           <ModalProvider>
