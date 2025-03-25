@@ -1,19 +1,17 @@
 import { Todo } from "@/lib/types";
+import { TodoInput } from "../schemas/todoSchema";
+import { api } from "../axios";
 
 export async function getTodos(): Promise<Todo[]> {
-  const res = await fetch(
-    "https://jsonplaceholder.typicode.com/todos?_limit=10",
-    {
-      next: {
-        tags: ["todos"],
-        revalidate: 60,
-      },
-    }
-  );
+  const res = await api.get<Todo[]>("/todos?_limit=10");
+  return res.data;
+}
 
-  if (!res.ok) {
-    throw new Error("Помилка при отриманні todos");
-  }
-
-  return res.json();
+export async function addTodo(data: TodoInput): Promise<Todo> {
+  const res = await api.post<Todo>("/todos", {
+    ...data,
+    userId: 1,
+    completed: false,
+  });
+  return res.data;
 }
